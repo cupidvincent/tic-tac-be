@@ -19,7 +19,7 @@ const logRequests = (req, res, next) => {
 };
 
 const _dirname = path.dirname("")
-const buildPath = path.join(_dirname  , "../client/build");
+const buildPath = path.join(_dirname  , "../tic-tac-fe/dist");
 
 const app = express();
 
