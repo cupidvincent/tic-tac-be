@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser';
 import gameRoutes from './routes/gameRoute.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import connectDB from './config/db.js';
-
+import cors from 'cors';
 connectDB();
 
 const logRequests = (req, res, next) => {
@@ -22,6 +22,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use(cookieParser());
+app.use(cors({
+    origin: [
+        'localhost',
+        'https://tic-tac-toe-h8ml.onrender.com'
+    ]
+}))
 app.use(logRequests);
 
 app.use('/api/game',gameRoutes);
